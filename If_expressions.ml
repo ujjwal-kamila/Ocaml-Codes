@@ -86,7 +86,7 @@ x + (let y = "3000" in
 int_of_string y)
 (** Using Function*)
 (**overlapping bindings*)
-let x = 5 ;;
+let x = 5 in
 ((let x = 6 in 6) + 5);; (**warning unused variable x*)
 
 let f x = x * x;;
