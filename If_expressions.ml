@@ -65,6 +65,7 @@ String.make 1 'z';;
 (** 4.3.4  "If expressions "*)
 if 3 + 5 > 2 then "true!" else "false!";;
 4 + (if 'a' = 'b' then 1 else 2);;
+if 5>3 then "true" else "false";;
 (*if 2 > 3 then 5  it through syntax error*)
 
 (** 4.3.5 "Let expressions "*)
@@ -84,31 +85,27 @@ let x = 100 in
 x + (let y = "3000" in
 (* y is meaningful here *)
 int_of_string y)
-(** Using Function*)
-(**overlapping bindings*)
-let x = 5 in
-((let x = 6 in 6) + 5);; (**warning unused variable x*)
 
+(**Using function *)
 let f x = x * x;;
 let f y = y * y;;
 
 f 4;;
 f 5;;
-
+(**overlapping bindings*)
 let x = 5 in
 ((let x = 6 in x) + x);;
 
-let x = 5 in (let x = 6 in x) + x;;
-
+let x = 5 in ((let x = 6 in x) + x);;
 
 let x = 5 in (let y = 6 in y) + x;;
 
-let x = 42;;
-let x = 22;;
-
-
-
-
-
-
-if 5>3 then "true" else "false";;
+(**Recall that every let defination in toplevel*)
+(*let a = 42 in
+let c = 22  in
+..............
+............*)
+(**Type annonations syntax : "e:t" *)
+(5:int);;
+(5. : float);;
+(5+. 1.1);;(* Type Error*)
