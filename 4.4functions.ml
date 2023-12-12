@@ -92,7 +92,7 @@ add5 2;;
 let add x y = x + y;;
 let add x = fun y -> x + y;;
 let add = fun x -> (fun y -> x + y);;
-
+(**by addding*)
 ( + );;
 ( + ) 3 4;;
 
@@ -100,5 +100,6 @@ let add3 = ( + ) 3 ;;
 
 add3 5;;
 
+(*function*)
 let ( ^^ ) x y = max x y;;
 ( ^^ ) 3 5;;
