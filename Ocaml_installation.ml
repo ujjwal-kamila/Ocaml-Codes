@@ -1,9 +1,9 @@
-Ocaml is a Functional programming Language 
+(* *Ocaml is a Functional programming Language 
 *Defines computataions as mathematical functions
-*Functions have some side effects
+*Functions have some side effects *)
 
 (**How to install Ocaml on Ubuntu \ Linux Machine*)
-You have to run the Below Commands in Terminal [Using Shortcut(CTRL+ALT+T)]
+(* You have to run the Below Commands in Terminal [Using Shortcut(CTRL+ALT+T)] *)
 
 1.sudo apt update
 2.sudo apt full-upgrade
