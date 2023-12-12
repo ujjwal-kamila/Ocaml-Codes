@@ -108,4 +108,4 @@ let c = 22  in
 (**Type annonations syntax : "e:t" *)
 (5:int);;
 (5. : float);;
-(5+. 1.1);;(* Type Error*)
+(5 +. 1.1);;(* Type Error expectes float but it is in int*)
