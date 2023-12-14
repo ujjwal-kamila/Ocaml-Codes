@@ -79,8 +79,10 @@ let f ?name:(arg1=8) arg2 = arg1 + arg2;;
 f 10;;
 
 (** 4.4.7  Partial Application *)
+(**addition function*)
 let add x y = x + y;;
 
+(**similar function*)
 let addx x = fun y -> x + y;;
 
 let add5 = addx 5;;
@@ -89,9 +91,12 @@ add5 6;;
 let add5 = add 5;;
 add5 2;;
 
+(**different ways of expressing the same computation*)
 let add x y = x + y;;
 let add x = fun y -> x + y;;
 let add = fun x -> (fun y -> x + y);;
+
+(**4.4.9 Operators as Functions*)
 (**by addding*)
 ( + );;
 ( + ) 3 4;;
