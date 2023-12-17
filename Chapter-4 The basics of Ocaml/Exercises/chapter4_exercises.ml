@@ -1,15 +1,15 @@
-(**exercise: values*)
+(**Exercise: values*)
 
 (* The first expression has type int, and the second has type string.
    We can demonstrate that by providing a manual *type annotation*
    as shown below. *)
    let a:int = 7*(1+2+3);;
+   7*(1+2+3);;
    let b:string = "CS " ^ string_of_int 3110;; 
+   "CS" ^ string_of_int 3110;;
+
    
-   (* If we don't want to bind an expression to a name, we can instead bind
-      it to the pseudo-name _.  That is, underscore.  *)
-   
-   let _:int = 7*(1+2+3)
+   let _:int = 7*(1+2+3);;
    let _:string = "CS " ^ string_of_int 3110
    
    (* Of course, in utop we could simply type the expression instead of
@@ -21,9 +21,9 @@
     * exercise: operators
     ********************************************************************)
    
-   let _ = 42*10
-   let _ = 3.14 /. 2.
-   let _ = 4.2 ** 7.
+   let _ = 42*10;;
+   let _ = 3.14 /. 2.;;
+   let _ = 4.2 ** 7.;;
    
    (********************************************************************
     * exercise: equality
@@ -33,9 +33,9 @@
       The equality test on the right-hand side binds more tightly than
       the equals sign that is part of the let-definition. *)
    
-   let _ = 42 = 42  (* another way to write that would be [let _ = (42 = 42)] *)
-   let _ = "hi" = "hi"  (* result is true *)
-   let _ = "hi" == "hi" (* result is false *)
+   let _ = 42 = 42 ;; (* another way to write that would be [let _ = (42 = 42)] *)
+   let _ = "hi" = "hi" ;; (* result is true *)
+   let _ = "hi" == "hi";; (* result is false *)
    
    (********************************************************************
     * exercise: assert
@@ -67,7 +67,7 @@
     ********************************************************************)
    
    let cube x =
-     x *. x *. x
+     x *. x *. x;;
    
    let _ = assert (cube 0. = 0.)
    let _ = assert (cube 1. = 1.)
@@ -85,12 +85,6 @@
    let area r =
      Float.pi *. r ** 2.
    
-   (* Comparing floating point numbers for equality is fraught with 
-      difficulty.  See this article, for example:
-        https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/
-      For more details, take a scientific computing class.
-      Here, we'll use a simple but not-very-good comparison: 
-      absolute difference. *)
    let close_enough a b =
      Float.abs (a -. b) < 1e-5
    
