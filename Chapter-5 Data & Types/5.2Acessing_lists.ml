@@ -53,5 +53,44 @@ let fst3 t =
   fst (1,2);;
   fst3 (10,2,5);;
 
+  (*let's see an empty list examples*)
+let empty lst = 
+  match lst with 
+  |[] -> true
+  |h::t ->false;;
+  (*tests for the upper function*)
+  empty [1;2];;
 
+  let rec sum lst = 
+    match lst with 
+    |[] -> 0 
+    |h :: t -> h + sum t;;
+  (*tests for the upper function*)
+  sum[];;
+  sum[1;2;3];;
+  (**for see what is the steps going on here in th upper fun run "#trace sum "*)
+  #trace sum;;
+  sum[1;2;3];;
 
+  (*another example*)
+  let rec length lst = 
+    match lst with 
+   |[] -> 0
+   | h::t -> 1 + length t;;
+    (*tests for the upper function*)
+  length [];;
+  length [1;2;3;4;5;6;7;8];;
+  (* #trace length ;; for trace and see what happpens to it *)
+
+  (* example :  append *)
+  (*Exaplme usage :
+     append [1;2;3] [4;5;6] is [1;2;3;4;5;6]*)
+  let rec append lst1 lst2 = 
+    match lst1 with 
+    | [] -> lst2
+    | h::t -> h :: append t lst2;;
+(*test cases for the upper function*)
+  append [1;2;3] [4;5;6];;
+  (*or use [1;2;3] @  [4;5;6];;*)
+   [1;2;3] @  [4;5;6];;
+  
