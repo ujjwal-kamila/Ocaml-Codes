@@ -91,6 +91,7 @@ let empty lst =
     | h::t -> h :: append t lst2;;
 (*test cases for the upper function*)
   append [1;2;3] [4;5;6];;
+  (* shortcut to append to lists lst1 and lst2  use "lst1 @ lst2 ;;" *)
   (*or use [1;2;3] @  [4;5;6];;*)
    [1;2;3] @  [4;5;6];;
   
