@@ -94,4 +94,5 @@ let empty lst =
   (* shortcut to append two lists lst1 and lst2  use "lst1 @ lst2 ;;" *)
   (*or use [1;2;3] @  [4;5;6];;*)
    [1;2;3] @  [4;5;6];;
+   [] @ [1;3;5];;
   
