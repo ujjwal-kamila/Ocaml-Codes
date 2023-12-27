@@ -31,7 +31,7 @@
 [[[]] ; [[1;3;4]]];;
 
 (*[] pronouces nill*)
-(* :: pronouces Cons*)
+(* :: pronouces Cons *)
 
 
 
