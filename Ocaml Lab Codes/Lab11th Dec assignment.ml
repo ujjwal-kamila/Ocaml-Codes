@@ -19,7 +19,7 @@ let get_words (s: string) : string list =
         split_words acc buffer tl
       )
   in
-  s |> String.to_seq |> List.of_seq |> split_words [] (Buffer.create 0) |> List.rev
+  s |> String.to_seq |> List.of_seq |> split_words [] (Buffer.create 0) |> List.rev;;
 (*sample run*)
 
 get_words "Hii,This is an exaple of a string";;

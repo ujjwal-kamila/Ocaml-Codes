@@ -55,7 +55,7 @@ let time name f a d =
           print_endline (Printf.sprintf "Average time: %f" average);
           return average;;
 
-        let amount 100
+        let amount = 100;;
         let denominations =  [1;2;5;10;20;50;100];;
 
         
