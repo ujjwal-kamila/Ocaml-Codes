@@ -1,0 +1,12 @@
+print_string "Hello World";;
+2-5;;
+3.14 *. 6.;;
+12/3;;
+15. /. 4.;;
+let var = 7;;
+let my_str = "Hello World";;
+let var1 x = 8;;
+let x = 1 + 4 in x*3;;
+let lst =[1;2;3;4];;
+let str_lst = ["Hello ";"World"];;
+let tup = (1,2,3,4);;
