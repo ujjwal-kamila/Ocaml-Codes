@@ -95,4 +95,14 @@ let empty lst =
   (*or use [1;2;3] @  [4;5;6];;*)
    [1;2;3] @  [4;5;6];;
    [] @ [1;3;5];;
-  
+
+
+   (*we could write a function to determine whether a list is empty:*)
+   let empty lst =
+    match lst with
+    | [] -> true
+    | h :: t -> false;;
+
+    (* better way to write the same function without pattern matching: *)
+    let empty lst =
+      lst = [];;
