@@ -106,3 +106,4 @@ let empty lst =
     (* better way to write the same function without pattern matching: *)
     let empty lst =
       lst = [];;
+
