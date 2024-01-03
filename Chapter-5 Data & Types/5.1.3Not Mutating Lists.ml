@@ -18,3 +18,7 @@ let inc_first lst =
   e2
   en *)
 
+(* Pattern matching involves two inter-related tasks *)
+  match 1 :: [] with
+| [] -> false
+| h :: t -> h >= 1 && List.length t = 0;;
