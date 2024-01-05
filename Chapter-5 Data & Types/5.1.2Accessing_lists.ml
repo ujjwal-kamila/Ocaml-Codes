@@ -89,6 +89,17 @@ let empty lst =
     match lst1 with 
     | [] -> lst2
     | h::t -> h :: append t lst2;;
+    (*same function with another example*)
+  (* Define a function to append two lists using cons (::) operator *)
+let rec append_lists list1 list2 =
+  match list1 with
+  | [] -> list2  
+  | head :: tail -> head :: (append_lists tail list2) 
+(* Example usage *)
+let list_a = [1; 2; 3]
+let list_b = [4; 5; 6]
+let result = append_lists list_a list_b
+;;
 
 (*test cases for the upper function*)
   append [1;2;3] [4;5;6];;
