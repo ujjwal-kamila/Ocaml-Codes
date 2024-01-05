@@ -82,18 +82,20 @@ let empty lst =
   length [1;2;3;4;5;6;7;8];;
   (* #trace length ;; for trace and see what happpens to it *)
 
-  (* example :  append *)
+  (* example :  append using cons "::"*)
   (*Exaplme usage :
      append [1;2;3] [4;5;6] is [1;2;3;4;5;6]*)
   let rec append lst1 lst2 = 
     match lst1 with 
     | [] -> lst2
     | h::t -> h :: append t lst2;;
+
 (*test cases for the upper function*)
   append [1;2;3] [4;5;6];;
   (* shortcut to append two lists lst1 and lst2  use "lst1 @ lst2 ;;" *)
   (*or use [1;2;3] @  [4;5;6];;*)
    [1;2;3] @  [4;5;6];;
+   [[1;2;3] ::  [4;5;6]];;
    [] @ [1;3;5];;
 
 
