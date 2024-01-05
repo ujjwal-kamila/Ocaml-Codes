@@ -95,7 +95,7 @@ let rec append_lists list1 list2 =
   match list1 with
   | [] -> list2  
   | head :: tail -> head :: (append_lists tail list2) 
-(* Example usage *)
+(* Example usage  *)
 let list_a = [1; 2; 3]
 let list_b = [4; 5; 6]
 let result = append_lists list_a list_b
