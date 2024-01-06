@@ -8,15 +8,12 @@ let inc_first lst =
 
   (* 5.1.4 Pattern Matching with Lists *)
   (* Syntax.
-  match e
-  | p1 ->
-  | p2 ->
-  | ...
-  | pn ->
-  with
-  e1
-  e2
-  en *)
+match e with
+| p1 -> e1
+| p2 -> e2
+| ...
+| pn -> en
+*)
 
 (* Pattern matching involves two inter-related tasks *)
   match 1 :: [] with
