@@ -7,7 +7,7 @@ let inc_first lst =
   | h :: t -> h + 1 :: t;;
 
   (* 5.1.4 Pattern Matching with Lists *)
-  (* Syntax.
+  (* Syntax  :
 match e with
 | p1 -> e1
 | p2 -> e2
