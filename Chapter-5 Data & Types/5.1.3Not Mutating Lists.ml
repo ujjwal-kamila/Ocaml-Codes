@@ -23,7 +23,9 @@ match e with
 
 match 1 :: [] with
 | [] -> false
-| h :: t -> h = 1 && t = [];;
+| h :: t -> h = 1 && t = [];;(*If at least one element h followed by a tail t, it checks h=1 and if t is an empty list []. If both conditions are true, it returns true; otherwise, it returns false.*)
 
+  (** let head lst = match lst with h :: _ -> h;; *)
+(*Warning 8 [partial-match]*)
 
 
