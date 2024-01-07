@@ -24,6 +24,22 @@ match 1 :: [] with
 (* another examplle of sum : o/p Warning 11 [redundant-case]: this match case is unused. *)
 (**let rec sum lst =
   match lst with
-  | h :: t -> h + sum t
+  | h :: t -> h + sum t;;
   | [ h ] ->0;; *)  (*unused case*)
+
+(*from video code "Matching" *)
+let bad_empty lst = 
+  match lst with 
+  | [] -> true
+  | _ -> false;;(*if any other lists then false*)
+
+(*sum of the elements of the lists*)
+let rec bad_sum lst =
+  match lst with
+  |h::t -> h + bad_sum t
+  |x::[] -> x 
+  |[]->0;;
+  
+ bad_sum [1];;
+ bad_sum [5;10;15];;
 
