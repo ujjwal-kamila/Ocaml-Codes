@@ -21,8 +21,7 @@ match e with
 | h :: t -> h >= 1 && List.length t = 0;; 
 (* If the list has at least one element,it checks if the head (h) is greater than or equal to 1 AND if the length of the tail (t) is 0. If both conditions are true, it returns true, otherwise, it returns false. *)
 
-
-
 match 1 :: [] with
 | [] -> false
 | h :: t -> h = 1 && t = [];;
+
