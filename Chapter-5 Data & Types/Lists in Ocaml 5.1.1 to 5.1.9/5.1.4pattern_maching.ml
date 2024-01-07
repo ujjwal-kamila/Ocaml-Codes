@@ -17,17 +17,7 @@ match 1 :: [] with
 | [] -> false
 | h :: t -> h = 1 && t = [];;(*If at least one element h followed by a tail t, it checks h=1 and if t is an empty list []. If both conditions are true, it returns true; otherwise, it returns false.*)
 
-  (** let head lst = match lst with h :: _ -> h;; *)
-(*Warning 8 [partial-match]*)
-
-
-(* another examplle of sum : o/p Warning 11 [redundant-case]: this match case is unused. *)
-(**let rec sum lst =
-  match lst with
-  | h :: t -> h + sum t;;
-  | [ h ] ->0;; *)  (*unused case*)
-
-(*from video code "Matching" *)
+  (*from video code "Matching" *)
 let bad_empty lst = 
   match lst with 
   | [] -> true
@@ -49,4 +39,24 @@ let rec bad_sum1 lst =
   List.hd [1;2;3];;
   List.tl [1;2;3];;
 
-  
+(*same code runs sum easily *)
+let rec better_sum1 lst =
+  match lst with
+  | [] -> 0  (*return 0 for an empty list *)
+  | hd :: tl -> hd + better_sum1 tl;;  (* Recursively sum the elements *)
+  better_sum1 [1;2;3;4;5;6];;
+
+
+  (** let head lst = match lst with h :: _ -> h;; *)
+(*Warning 8 [partial-match]*)
+
+
+(* another examplle of sum : o/p Warning 11 [redundant-case]: this match case is unused. *)
+(**let rec sum lst =
+  match lst with
+  | h :: t -> h + sum t;;
+  | [ h ] ->0;; *)  (*unused case*)
+
+
+
+
