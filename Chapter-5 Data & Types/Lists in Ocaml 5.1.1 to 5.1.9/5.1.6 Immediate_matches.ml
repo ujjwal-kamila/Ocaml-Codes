@@ -8,5 +8,20 @@ let rec sum lst =
 
 
   let rec sum = function
-| [] -> 0
-| h :: t -> h + sum t;;
+  | [] -> 0
+  | h :: t -> h + sum t;;
+
+  (*from video "use 'function' "*)
+  let empty = function
+  | [] -> true
+  | _ -> false;;
+
+  let rec sum = function
+    |[] -> 0 
+    |h :: t -> h + sum t;;
+
+(*for length*)
+let rec length = function 
+ |[] -> 0
+ | h::t -> 1 + length t;;
+ (*for append it is not possible*)
