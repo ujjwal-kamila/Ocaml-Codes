@@ -43,6 +43,10 @@ bad_sum [];;
 bad_sum [1];;
 bad_sum [5;10;15];;
 
-(*another implenmentation of sum*)
+(*another implenmentation of sum using hd tl*)
 let rec bad_sum1 lst = 
   List.hd lst + bad_sum1 (List.tl lst);;
+  List.hd [1;2;3];;
+  List.tl [1;2;3];;
+
+  
