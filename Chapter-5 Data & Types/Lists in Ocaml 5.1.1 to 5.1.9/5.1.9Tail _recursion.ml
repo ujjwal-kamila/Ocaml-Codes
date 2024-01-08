@@ -18,3 +18,16 @@ let rec sum_plus_acc (acc : int) (l : int list) : int =
   let sum_tr : int list -> int =
     sum_plus_acc 0;;(* Calls a function sum_plus_acc with an initial accumulator value of 0 *)
     sum_plus_acc 0 [1;2;3;4];;
+
+
+
+
+(** [from i j l] is the list containing the integers from [i] to [j],
+    inclusive, followed by the list [l].
+    Example:  [from 1 3 [0] = [1; 2; 3; 0]] *)
+    let rec from i j l = if i > j then l else from i (j - 1) (j :: l)
+
+    (** [i -- j] is the list containing the integers from [i] to [j], inclusive. *)
+    let ( -- ) i j = from i j []
+    
+    let long_list = 0 -- 1_000_000;;
