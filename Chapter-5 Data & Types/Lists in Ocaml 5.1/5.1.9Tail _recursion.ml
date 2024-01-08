@@ -31,3 +31,4 @@ let rec sum_plus_acc (acc : int) (l : int list) : int =
     let ( -- ) i j = from i j []
     
     let long_list = 0 -- 1_000_000;;
+    List.init 1_000_000 Fun.id;;
