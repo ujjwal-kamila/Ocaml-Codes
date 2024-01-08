@@ -68,8 +68,10 @@ length_is [1;2;3] 4;;  (*always return true implement below code*)
 let length_is lst n =
   match List.length lst with
   | m -> m = n;;(* If the length m matches the number n, return true; otherwise, return false *)
+  length_is [1;2;3] 3;;
 
   (*better way to match*)
   let length_is lst n =
     List.length lst = n;;
+  length_is [1;2;3] 4;;
 
