@@ -13,7 +13,7 @@ let rec sum_plus_acc (acc : int) (l : int list) : int =
   | [] -> acc
   | x :: xs -> sum_plus_acc (acc + x) xs;; (*  (* Recursive case: add current element to accumulator and recurse on the rest of the list *)
   *)
-  sum_plus_acc 0 [1;2;3;4];;
+  sum_plus_acc 0 [1;2;3;4];;  
 
   let sum_tr : int list -> int =
     sum_plus_acc 0;;(* Calls a function sum_plus_acc with an initial accumulator value of 0 *)
