@@ -1,7 +1,7 @@
 (* 5.3.1 An Example of OUnit *)
 (* run below commands  in terminal  *)
-dune build test.exe
-dune exec ./test.exe
+(***-> $dune build test.exe
+  -> $dune exec ./test.exe **)
 
 (* Now suppose we modify sum.ml to introduce a bug by changing the code in it to the following: *)
 
