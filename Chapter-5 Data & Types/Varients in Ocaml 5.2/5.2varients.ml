@@ -1,6 +1,7 @@
 (* 5.2. Variants *)
 type day = Sun | Mon | Tue | Wed | Thu | Fri | Sat
-let d = Tue;;
+let d = Sun;;
+
 
 let int_of_day d =
   match d with
