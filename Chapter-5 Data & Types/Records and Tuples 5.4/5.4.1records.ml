@@ -26,3 +26,6 @@ match c with {name = n; hp = h; ptype = t} -> n;;
 
 (* A record type is written:
 {f1 : t1; ...; fn : tn} *)
+
+(**Another syntax is also provided to construct a new record out of an old record:
+'{e with f1 = e1; ...; fn = en}'*)
