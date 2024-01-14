@@ -22,5 +22,4 @@ let eff = function
   | (TWater , TFire) -> ESuper
   | _ -> ENormal;;
 
-
 (* 5.5.3 Pattern Matching Examples *)
