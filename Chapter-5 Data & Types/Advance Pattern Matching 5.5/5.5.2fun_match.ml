@@ -6,3 +6,21 @@
 (**let f p1 ... pn = e*)          (* function definition at toplevel *)
 (**fun p1 ... pn -> e*)           (* anonymous function *)
 
+(***from video*)
+(* Pokemon types *)
+type ptype = TNormal | TFire | TWater
+
+type peff = ENormal | ENotVery | ESuper
+(**attacking matching with ptype and peff*)
+let mult_of_eff = function
+  | ENormal -> 1.
+  | ENotVery -> 0.5
+  | ESuper -> 2.0
+
+let eff = function
+  | (TFire,TFire) | (TWater,TWater) | (TFire,TWater) -> ENotVery
+  | (TWater , TFire) -> ESuper
+  | _ -> ENormal;;
+
+
+(* 5.5.3 Pattern Matching Examples *)
