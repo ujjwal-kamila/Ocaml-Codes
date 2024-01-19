@@ -8,9 +8,9 @@
 
 (***from video*)
 (* Pokemon types *)
-type ptype = TNormal | TFire | TWater
+type ptype = TNormal | TFire | TWater;;
 
-type peff = ENormal | ENotVery | ESuper
+type peff = ENormal | ENotVery | ESuper;;
 (**attacking matching with ptype and peff*)
 let mult_of_eff = function
   | ENormal -> 1.
@@ -23,3 +23,26 @@ let eff = function
   | _ -> ENormal;;
 
 (* 5.5.3 Pattern Matching Examples *)
+
+(* Pokemon types *)
+type ptype = TNormal | TFire | TWater;;
+(* A record to represent Pokemon *)
+type mon = { name : string; hp : int; ptype : ptype };;
+(*we can do various type of matching likes below  *)
+(*normal way to match with full function *)
+let get_hp m = match m with { name = n; hp = h; ptype = t } -> h;;
+let get_name m = match m with { name = n; hp = h; ptype = t } -> n;;
+let get_ptype m = match m with { name = n; hp = h; ptype = t } -> t;;
+
+(* better way to match *)
+let get_hp m = match m with { name = _; hp = h; ptype = _ } -> h;;
+
+(* best way to matching in short *)
+let get_hp m = match m with { name; hp; ptype } -> hp;;
+(* better *)
+let get_hp m = match m with { hp } -> hp;;
+
+(* easiest best way to match*)
+let get_hp m = m.hp
+let get_hp m = m.name
+let get_hp m = m.ptype
