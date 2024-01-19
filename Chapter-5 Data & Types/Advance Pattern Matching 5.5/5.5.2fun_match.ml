@@ -36,11 +36,17 @@ let get_ptype m = match m with { name = n; hp = h; ptype = t } -> t;;
 
 (* better way to match *)
 let get_hp m = match m with { name = _; hp = h; ptype = _ } -> h;;
+let get_name m = match m with { name = n; hp = _; ptype = _ } -> n;;
+let get_ptype m = match m with { name = _; hp = _; ptype = t } -> t;;
 
 (* best way to matching in short *)
 let get_hp m = match m with { name; hp; ptype } -> hp;;
+let get_name m = match m with { name; hp; ptype } -> name;;
+let get_ptype m = match m with { name; hp; ptype } -> ptype;;
 (* better *)
 let get_hp m = match m with { hp } -> hp;;
+let get_name m = match m with { name } -> name;;
+let get_ptype m = match m with { ptype } -> ptype;;
 
 (* easiest best way to match*)
 let get_hp m = m.hp
