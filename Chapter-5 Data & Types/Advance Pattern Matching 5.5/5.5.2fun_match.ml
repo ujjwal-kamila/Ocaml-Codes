@@ -50,5 +50,24 @@ let get_ptype m = match m with { ptype } -> ptype;;
 
 (* easiest best way to match*)
 let get_hp m = m.hp
-let get_hp m = m.name
-let get_hp m = m.ptype
+let get_name m = m.name
+let get_ptype m = m.ptype
+
+(* Here’s how to get the first and second components of a pair: *)
+(* Both fst and snd are actually already defined for you in the standard library. *)
+let fst (x, _) = x;;
+let snd (_, y) = y;;
+
+(* Finally, here are several ways to get the 3rd component of a triple: *)
+(* OK *)
+let thrd t = match t with x, y, z -> z;;
+(* good *)
+let thrd t =
+let x, y, z = t in
+z;;
+(* better *)
+let thrd t =
+let _, _, z = t in
+z
+(* best *)
+let thrd (_, _, z) = z
