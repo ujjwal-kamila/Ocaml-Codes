@@ -59,7 +59,7 @@ let fst (x, _) = x;;
 let snd (_, y) = y;;
 
 (* Finally, here are several ways to get the 3rd component of a triple: *)
-(* OK *)
+(* better way *)
 let thrd t = match t with x, y, z -> z;;
 (* good *)
 let thrd t =
