@@ -68,6 +68,6 @@ z;;
 (* better *)
 let thrd t =
 let _, _, z = t in
-z
+z;;
 (* best  *)
-let thrd (_, _, z) = z
+let thrd (_, _, z) = z;;
