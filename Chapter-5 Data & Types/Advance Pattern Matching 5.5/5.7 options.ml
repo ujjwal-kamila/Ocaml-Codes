@@ -3,6 +3,15 @@
 
 (** 
 let rec list_max = function
-| [] -> ???
-| h :: t -> max h (list_max t);; *)
+ | [] -> ???
+ | h :: t -> max h (list_max t);;   gives syntax error *)
+
+let rec list_max = function
+ | [] -> 0
+ | h :: t -> max h (list_max t);;
+
+ (*Create an option that is like a box with 42 inside it:*)
+Some 42;;
+(* And here’s how we create an option that is like an empty box: *)
+None;;
 
