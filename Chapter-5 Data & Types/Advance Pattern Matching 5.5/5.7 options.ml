@@ -15,3 +15,13 @@ Some 42;;
 (* And here’s how we create an option that is like an empty box: *)
 None;;
 
+(*We can acess the contends of an options value 'e' using pattern matching : like below*)
+(*In Below here is a fun that extracts an int from an option if there is one inside, and converts it to an string *)
+let extract f = 
+  match f with 
+  |Some i -> string_of_int i  (*returns str of int*)
+  |None -> "";;           (*returns empty str when None*)
+  extract (Some 42);;
+  extract None;;
+
+
