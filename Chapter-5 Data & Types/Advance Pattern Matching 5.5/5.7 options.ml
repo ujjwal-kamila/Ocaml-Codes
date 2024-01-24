@@ -33,4 +33,9 @@ let rec list_max = function
     | None -> Some h        (* If the result is None, the maximum is the current head (h) *)
     | Some m -> Some (max h m) (* If the result is Some m, the maximum is the max of current head (h) and m *)
   end;;
-
+(*test cases*)
+list_max [];;   (*'a option = None*)
+list_max [1;2;3;4];;(*- : int option = Some 4
+*)
+list_max [1];;(*- : int option = Some 1
+*)
