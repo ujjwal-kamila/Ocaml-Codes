@@ -24,4 +24,13 @@ let extract o =   (*takes option type as argument*)
   extract (Some 42);;
   extract None;;
 
+(* Define a recursive function list_max that takes a list of integers and returns an option type *)
+let rec list_max = function
+| [] -> None  (* Base case: if the list is empty, return None *)
+| h :: t ->   (* Recursive case: if the list is not empty, split it into head (h) and tail (t) *)
+  begin
+    match list_max t with   (* Recursively call list_max on the tail of the list *)
+    | None -> Some h        (* If the result is None, the maximum is the current head (h) *)
+    | Some m -> Some (max h m) (* If the result is Some m, the maximum is the max of current head (h) and m *)
+  end;;
 
