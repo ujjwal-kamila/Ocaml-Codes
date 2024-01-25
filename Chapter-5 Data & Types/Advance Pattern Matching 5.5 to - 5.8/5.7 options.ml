@@ -1,3 +1,4 @@
+(*5.7 Options & 5.8. Association Lists *)
 (* 5.7 Options : Suppose you want to write a function that usually returns a value of type t *)
 (* define a function list_max that returns the maximum value in a list, but there’s not a sensible thing to return on an empty list: *)
 
@@ -39,3 +40,29 @@ list_max [1;2;3;4];;(*- : int option = Some 4
 *)
 list_max [1];;(*- : int option = Some 1
 *)
+
+(* 5.8. Association Lists *)
+(* A map is a data structure that maps keys to values : One easy implementation of a map is an association list, which is a list of pairs *)
+let d = [("rectangle", 4); ("nonagon",9); ("icosagon",20)];;  (*association list that maps some shape names*)
+
+(* Here are two functions that implement insertion and lookup in an association list: *)
+(* Function to insert a key-value pair into a list *)
+let insert k v lst = (k, v) :: lst
+(* Recursive function to look up a key in a list of key-value pairs *)
+let rec lookup k = function
+  | [] -> None     (* If the list is empty, the key is not found, return None *)
+  | (k', v) :: t ->  (* Otherwise, destructure the head of the list into (k', v) *)
+    if k = k' then (* If the current key matches the target key *)
+      Some v      (* Return Some with the corresponding value *)
+    else
+      lookup k t;; (* Otherwise, recursively search in the remaining tail of the list *)
+(*same upper fun in easy way *)
+let rec lookup k = function
+| [] -> None
+| (k', v) :: t -> if k = k' then Some v else lookup k t;;
+
+lookup [];;
+lookup [()];;
+lookup [9;7;5;4];;
+lookup [("d", 4); ("a", 1); ("b", 2); ("c", 3)];;
+lookup [(3, 4); (7, 1); (0, 2); (2, 3)];;
