@@ -25,14 +25,6 @@ let r1 = Rectangle {lower_left = (-1. , -1.); upper_right=(1. , 1.)}
 
 
 
-
-
-
-
-
-
-
-
 (* As a running example, here is a variant type shape that does more than just enumerate values: *)
 type point = float * float
 type shape = 
