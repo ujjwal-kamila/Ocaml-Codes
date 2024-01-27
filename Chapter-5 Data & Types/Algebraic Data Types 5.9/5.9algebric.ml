@@ -23,6 +23,7 @@ type shape =
   |Circle of {center : point; radius : float}
   |Rectangle of {lower_left : point ; upper_right : point}
 
+
 let c1 =  Circle {center = (0., 0.); radius = 1.}
 let r1 = Rectangle {lower_left = (-1. , -1.); upper_right=(1. , 1.)}
 
@@ -35,7 +36,7 @@ let avg a b = (a +. b) /. 2.;;
 let center s = 
   match s with 
    |Circle {center;radius} -> center
-   |Rectangle{lower_left;upper_right} ->        (* Destructure the points of the rectangle *)
+   |Rectangle{lower_left;upper_right} -> (* Destructure the points of the rectangle *)
 
         let( x_ll, y_ll) = lower_left in 
         let (x_ur , y_ur) = upper_right in 
@@ -44,4 +45,47 @@ let center s =
 
 center (Rectangle { lower_left = (0.0, 1.0); upper_right = (4.0, 5.0) })
 
+(*from video : part 2 implementation of upper pattern matching*)
 
+type point = float * float
+
+type shape =
+  |Circle of {center : point; radius : float}
+  |Rectangle of {lower_left : point ; upper_right : point}
+  |Point of point (*add for part 2 implement pattern matching*)
+let p1 = Point (31. , 10.)
+
+let center s = 
+  match s with 
+   |Circle {center;radius} -> center
+   |Rectangle{lower_left = (x_ll,y_ll);
+              upper_right=(x_ur,y_ur)} ->
+        (avg x_ll  x_ur , avg y_ll  y_ur)
+    |Point p-> p;;
+
+(* Here are a couple functions that use the shape type: *)
+
+
+(* Define a type 'shape' with three possible constructors: Point, Circle, and Rect *)
+type point = float * float
+type shape =
+  | Point of point
+  | Circle of point * float
+  | Rect of point * point
+
+
+(* Function to calculate the area of a given shape *)
+let area = function
+  | Point _ -> 0.0 (* Area of a point is considered as 0 *)
+  | Circle (_, r) -> Float.pi *. (r ** 2.0) (* Area of a circle: π * r^2 *)
+  | Rect ((x1, y1), (x2, y2)) ->
+      let w = x2 -. x1 in (* Calculate the width of the rectangle *)
+      let h = y2 -. y1 in (* Calculate the height of the rectangle *)
+      w *. h           (* Area of a rectangle: width * height *)
+
+(* Function to find the center of mass of a given shape *)
+let center = function
+  | Point p -> p      (* Center of mass of a point is the point itself *)
+  | Circle (p, _) -> p (* Center of mass of a circle is its center *)
+  | Rect ((x1, y1), (x2, y2)) ->(* Center of mass of a rectangle is the midpoint of its diagonal *)
+      ((x2 +. x1) /. 2.0, (y2 +. y1) /. 2.0)
