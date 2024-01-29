@@ -103,3 +103,18 @@ type string_or_int =
     | Int i :: t -> i + sum t
   
   let lst_sum = sum [String "1"; Int 2];;
+
+(*for multiple constructers carry same type*)
+(*there is a new type 't' with two constructers*)
+type t = Left of int | Right of int (*noth taking an int*)
+(* Create a value 'x' of type 't' with the constructor 'Left' and the argument '1'. *)
+let x = Left 1
+(*define a fun 'double_right'that pattern matches on a value of type 't'*)
+let double_right = function
+| Left i -> i (*if cons with Left return the integer value. *)
+| Right i -> 2 * i;; (*if right then twice the integer*)
+  (* 5.9.2 Syntax and Semantics : Syntax :"type t = C1 [of t1] | ... | Cn [of tn]" *)
+(* To write an expression that is a variant:
+C e Or : C *)
+
+(* 5.9.3 Catch-all Cases *)
