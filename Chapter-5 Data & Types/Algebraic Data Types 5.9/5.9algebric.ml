@@ -118,3 +118,9 @@ let double_right = function
 C e Or : C *)
 
 (* 5.9.3 Catch-all Cases *)
+
+(*Write function and color varients*)
+type color = Blue | Red
+let string_of_color = function
+| Blue -> "blue"
+| _ -> "red";;
