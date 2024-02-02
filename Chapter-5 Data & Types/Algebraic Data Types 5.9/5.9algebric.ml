@@ -120,7 +120,10 @@ C e Or : C *)
 (* 5.9.3 Catch-all Cases *)
 
 (*Write function and color varients*)
-type color = Blue | Red
+type color = Blue | Red | Green
 let string_of_color = function
 | Blue -> "blue"
 | _ -> "red";;
+
+string_of_color Blue;;
+string_of_color Green;;(*The problem is the catch-all case in the pattern match inside string_of_color: the final case that uses the wildcard pattern to match anything.*)
