@@ -93,3 +93,20 @@ type shape =
 type 'a mylist = Nil | Cons of 'a * 'a mylist;;
 
 (* define a variant type to represent that result: *)
+(* Define a type fin_or_inf with two possible variants:*)
+type fin_or_inf = Finite of int | Infinity
+let f = function
+  | 0 -> `Infinity   (* If the input is 0, return Infinity *)
+  | 1 -> `Finite 1   (* If the input is 1, return Finite 1 *)
+  | n -> `Finite (-n);; (* For any other input n, return Finite (-n) *)
+  (* For example, wecould write: *)
+match f 3 with
+  | `NegInfinity -> "negative infinity"
+  | `Finite n -> "finite"
+  | `Infinity -> "infinite";;
+
+  (* 5.9.7 Built-in Variants *)
+  (* OCaml’s built-in list data type is really a recursive, parameterized variant. It is defined as follows: *)
+type 'a list = [] | ( :: ) of 'a * 'a list
+(* OCaml’s built-in option data type is also really a parameterized variant. It’s defined as follows: *)
+type 'a option = None | Some of 'a
