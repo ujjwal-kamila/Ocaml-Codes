@@ -158,3 +158,16 @@ let rec length : intlist -> int = function
 let empty : intlist -> bool = function
   | Nil -> true
   | Cons _ -> false;;
+
+  (* Types may be mutually recursive if you use the and keyword: *)
+(* Define a record type 'node' with fields 'value' of type int and 'next' of type mylist *)
+type node = {value: int; next: mylist}
+(* Define a variant type 'mylist' that can either be 'Nil' or 'Node' containing a 'node' *)
+and mylist = Nil | Node of node;;
+
+(** type t = u and u = t *) (*gives error*)
+type t = U of u and u = T of t
+
+(* Record types may also be recursive: *)
+type node = {value : int; next : node};;
+(** type t = t*t;; *) (*Error: The type abbreviation t is cyclic*)
