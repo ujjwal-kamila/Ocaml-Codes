@@ -53,6 +53,8 @@ type t = U of u and u = T of t
 type node = {value : int; next : node};;
 (** type t = t*t;; *) (*Error: The type abbreviation t is cyclic*)
 
+
+
 (*5.9.5. Parameterized Variants : Variant types may be parameterized on other type*)
 (* Define a custom list type 'a mylist *)
 type 'a mylist = Nil | Cons of 'a * 'a mylist
@@ -60,3 +62,34 @@ type 'a mylist = Nil | Cons of 'a * 'a mylist
 let lst3 = Cons (3, Nil)
 (* Create a list containing the string "hi", similar to ["hi"] in traditional lists *)
 let lst_hi = Cons ("hi", Nil)
+
+(* Here are some functions over 'a mylist: *)
+let rec length : 'a mylist -> int = function
+| Nil -> 0
+| Cons (_, t) -> 1 + length t
+let empty : 'a mylist -> bool = function
+| Nil -> true
+| Cons _ -> false
+(* give up some polymorphism. For example, *)
+let rec sum = function
+| Nil -> 0
+| Cons (h, t) -> h + sum t
+
+(* It is also possible to have multiple type parameters for a parameterized type, in which case parentheses are needed: *)
+type ('a, 'b) pair = {first : 'a; second : 'b}
+let x = {first = 2; second = "hello"}
+
+
+
+(* 5.9.6 Polymorphic Variants :  simply returns its input*)
+(* define a variant type, you have had to give it a name, such as day, shape, or 'a mylist: *)
+type day = Sun | Mon | Tue | Wed | Thu | Fri | Sat
+type point = float * float
+type shape =
+  | Point of point
+  | Circle of point * float
+  | Rect of point * point;;
+
+type 'a mylist = Nil | Cons of 'a * 'a mylist;;
+
+(* define a variant type to represent that result: *)
