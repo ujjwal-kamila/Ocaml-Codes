@@ -45,4 +45,34 @@
               [|1; 1; 1; 0; 1|]|] in
   let starting_position = (1, 2) in
   play starting_position mat
-  
+
+  (* 
+  let rec find_exit matrix (x, y) start =
+  if x <= 0 || y <= 0 || x >= Array.length matrix - 1 || y >= Array.length matrix.(0) - 1 then
+    Some (start, (x, y))
+  else if matrix.(x).(y) = 0 then begin
+    matrix.(x).(y) <- 1;
+    match find_exit matrix (x, y + 1) start with
+    | Some path -> Some path
+    | None -> match find_exit matrix (x + 1, y) start with
+              | Some path -> Some path
+              | None -> match find_exit matrix (x, y - 1) start with
+                        | Some path -> Some path
+                        | None -> find_exit matrix (x - 1, y) start
+  end else None
+;;
+
+(* Example usage *)
+let mat = [|[|1; 1; 1; 1; 1|]; 
+            [|1; 0; 0; 1; 0|];
+            [|1; 0; 1; 1; 1|];
+            [|0; 0; 0; 0; 1|];
+            [|1; 1; 1; 0; 1|]|] in
+
+let starting_position = (1, 2) in
+match find_exit mat starting_position starting_position with
+| Some (start, exit_point) ->
+    Printf.printf "Starting position: (%d, %d)\n" (fst start) (snd start);
+    Printf.printf "Exit point: (%d, %d)\n" (fst exit_point) (snd exit_point)
+| None -> Printf.printf "No exit point found\n"
+ *)
