@@ -36,3 +36,6 @@ fourth 3;;
 let apply f x = f x
 
 (*using pipe line operator*)
+let pipeline x f = f x
+let (|>) = pipeline
+let x = 5 |> double
