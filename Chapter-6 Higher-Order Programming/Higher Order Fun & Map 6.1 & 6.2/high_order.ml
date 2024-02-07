@@ -1,4 +1,4 @@
-(**A higher-order function is a function that can take other functions as arguments or return functions as results, or bothzA higher-order function is a function that can take other functions as arguments or return functions as results, or both*)
+(**A higher-order function is a function that can take other functions as arguments or return functions as results, or both A higher-order function is a function that can take other functions as arguments or return functions as results, or both*)
 
 (* Double & square functions *)
 let double x = 2 * x;;
@@ -36,6 +36,12 @@ fourth 3;;
 let apply f x = f x
 
 (*using pipe line operator*)
-let pipeline x f = f x
-let (|>) = pipeline
-let x = 5 |> double
+let pipeline x f = f x;;
+pipeline 3 square ;;
+let (|>) = pipeline;;
+
+let x = 5 |> double;;
+
+(* We can write a function that composes two other functions: *)
+let compose f g x = f( g x);;
+compose double square 3;;
