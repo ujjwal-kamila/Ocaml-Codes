@@ -45,3 +45,23 @@ let x = 5 |> double;;
 (* We can write a function that composes two other functions: *)
 let compose f g x = f( g x);;
 compose double square 3;;
+
+(* This function would let us create a new function that can be applied many times, such as the following: *)
+let square_then_double = compose double square;;
+let x = square_then_double 1;;
+let y = square_then_double 2;;
+
+(*we can write a function that appliers two function to the same argument and returns a pair of the result*)
+let both f g x = (f x, g x)
+let ds = both double square
+let p = ds 3;;
+
+(*sample positive fun *)
+let is_positive n = n > 0
+
+(* We can write a function that conditionally chooses which of two functions to apply based on a predicate: *)
+let cond p f g x =
+  if p x then f x else g x;;
+(* Example usage: *)
+cond is_positive double square 9;;  (*means f x  *)
+cond is_positive square double 9;;  (*means g x *)
