@@ -1,0 +1,4 @@
+(library
+ (name mazesolver)
+ (modules mazesolv readmaze)
+ )

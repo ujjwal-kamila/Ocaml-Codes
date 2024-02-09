@@ -1,2 +1,4 @@
 (test
- (name test_Matrix))
+ (name test_matrix)
+ (libraries matrix)
+)

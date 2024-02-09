@@ -1,14 +1,13 @@
-(lang dune 3.12)
+(lang dune 2.5)
 
-(name Matrix)
-
+(name mazesolver)
 
 (generate_opam_files true)
 
 (source
  (github username/reponame))
 
-(authors "Author Name")
+(authors "Ujjwal Kamila")
 
 (maintainers "Maintainer Name")
 
@@ -17,7 +16,7 @@
 (documentation https://url/to/documentation)
 
 (package
- (name Matrix)
+ (name mazesolver)
  (synopsis "A short synopsis")
  (description "A longer description")
  (depends ocaml dune)
