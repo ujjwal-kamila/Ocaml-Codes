@@ -118,3 +118,18 @@ let rec map_tr_aux f acc = function
 let map_tr f = map_tr_aux f[]
 let lst1 = map_tr (fun x -> x + 1) [1;2;3]
 
+
+
+(* he standard library calls this function List.rev_map, that is, a (tail-recursive) map function that returns its output in reverse order. *)
+let rec rev_map_aux f acc = function
+  | [] -> acc
+  | h :: t -> rev_map_aux f (f h :: acc) t
+
+let rev_map f = rev_map_aux f []
+
+let lst = rev_map (fun x -> x + 1) [1; 2; 3]
+
+(* 6.2.3. Map in Other Languages : not nessesary *)
+
+(**>>> print(list(map(lambda x: x + 1, [1, 2, 3])))
+[2, 3, 4]*)
