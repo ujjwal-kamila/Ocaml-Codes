@@ -8,3 +8,15 @@ let rec evens = function
   | [] -> []
   | h :: t -> if even h then h :: evens t else evens t
 let lst1 = evens [1; 2; 3; 4]
+
+(*Another Implementation*)
+(** [odd n] is whether [n] is odd. *)
+let odd n =
+  n mod 2 <> 0
+
+(** [odds lst] is the sublist of [lst] containing only odd numbers. *)
+let rec odds = function
+  | [] -> []
+  | h :: t -> if odd h then h :: odds t else odds t
+
+let lst2 = odds [1; 2; 3; 4]
