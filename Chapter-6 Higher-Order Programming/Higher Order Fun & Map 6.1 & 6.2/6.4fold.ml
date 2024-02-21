@@ -17,4 +17,17 @@ let rec concat = function
 let c = concat ["a"; "b"; "c"];;
 let d = concat ["d"; "e"; "f"];;
 
+(* using factor  *)
 
+let rec sum' init = function
+  | [] -> init
+  | h :: t -> h + sum' init t;;
+
+let sum = sum' 0;;
+let s = sum' 1;;
+
+let rec concat' init = function
+  | [] -> init
+  | h :: t -> h ^ concat' init t;;
+
+let concat = concat' "";;
