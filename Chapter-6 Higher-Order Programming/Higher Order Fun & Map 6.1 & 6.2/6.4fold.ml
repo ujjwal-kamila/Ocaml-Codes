@@ -29,5 +29,4 @@ let s = sum' 1;;
 let rec concat' init = function
   | [] -> init
   | h :: t -> h ^ concat' init t;;
-
 let concat = concat' "";;
