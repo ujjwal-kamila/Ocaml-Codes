@@ -1,6 +1,6 @@
 (* 6.4. Fold *)
 
-(**sum of all the elements of lst *)
+(** sum of all the elements of lst *)
 let rec sum = function
   | [] -> 0
   | h :: t -> h + sum t;;
