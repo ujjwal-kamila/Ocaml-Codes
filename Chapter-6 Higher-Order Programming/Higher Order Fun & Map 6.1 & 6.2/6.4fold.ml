@@ -16,7 +16,7 @@ let rec concat = function
 
 let c = concat ["a"; "b"; "c"];;
 let d = concat ["d"; "e"; "f"];;
-
+   de
 (* using factor  *)
 
 let rec sum' init = function
