@@ -107,7 +107,7 @@ let rec map_tr_aux f acc = function
 let map_tr f = map_tr_aux f [] (*Initialize the accumulator with an empty list *)
 (*test case with empty [] acc *)
 let lst = map_tr_aux (fun x -> x + 1) [] [1; 2; 3];;
-let lst = map_tr (fun x -> x + 1) [1; 2; 3] (*without acc delclearing*)
+let lst = map_tr (fun x -> x + 1) [4; 7; 8] (*without acc delclearing*)
 
 (*without using append @ : we could use the constant-time cons operation instead of the linear-time append operation: *)
 let rec map_tr_aux f acc = function
@@ -117,8 +117,7 @@ let map_tr f = map_tr_aux f[]
 let lst1 = map_tr (fun x -> x + 1) [1;2;3]
 
 
-
-(* he standard library calls this function List.rev_map, that is, a (tail-recursive) map function that returns its output in reverse order. *)
+(* The standard library calls this function List.rev_map, that is, a (tail-recursive) map function that returns its output in reverse order. *)
 let rec rev_map_aux f acc = function
   | [] -> acc
   | h :: t -> rev_map_aux f (f h :: acc) t
