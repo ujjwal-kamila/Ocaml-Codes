@@ -98,8 +98,6 @@ let lst = map p [1;2];;
 
 (* 6.2.2. Map and Tail Recursion : the implementation of map is not tail recursive. *)
 
-
-
 (*helper fun for tail-recursive map *)
 let rec map_tr_aux f acc = function
   | [] -> acc
