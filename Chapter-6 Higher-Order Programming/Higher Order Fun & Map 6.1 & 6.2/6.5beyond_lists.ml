@@ -23,7 +23,7 @@ let rec fold_mylist f acc = function
   | Cons (h, t) -> f h (fold_mylist f acc t)  (* Apply function f to the head element and the result of recursively folding the tail of the list *)
 
 
-  (* fold function on trees: *)
+  (* fold function on trees : *)
   let rec fold_tree f acc = function
   | Leaf -> acc
   | Node (v, l, r) -> f v (fold_tree f acc l) (fold_tree f acc r)
