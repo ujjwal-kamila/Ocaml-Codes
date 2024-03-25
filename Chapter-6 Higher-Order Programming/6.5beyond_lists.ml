@@ -27,3 +27,15 @@ let rec fold_mylist f acc = function
   let rec fold_tree f acc = function
   | Leaf -> acc
   | Node (v, l, r) -> f v (fold_tree f acc l) (fold_tree f acc r)
+
+(* We can then use fold_tree to implement some of the tree functions we’ve previously seen: *)
+let size t = fold_tree (fun _ l r -> 1 + l + r) 0 t
+let depth t = fold_tree (fun _ l r -> 1 + max l r) 0 t
+let preorder t = fold_tree (fun x l r -> [x] @ l @ r) [] t
+
+
+(* 4.5.3. Filter on Trees *)
+let rec filter_tree p = function
+  | Leaf -> Leaf
+  | Node (v, l, r) ->
+    if p v then Node (v, filter_tree p l, filter_tree p r) else Leaf
