@@ -1,0 +1,6 @@
+(executable
+ (public_name mazesolver)
+ (name main)
+ (libraries mazesolver)
+)
+  
