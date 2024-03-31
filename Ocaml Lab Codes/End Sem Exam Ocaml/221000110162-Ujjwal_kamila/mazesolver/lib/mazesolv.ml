@@ -22,7 +22,7 @@ open Readmaze
     If entry point provided is invalid (the cell is not open, i.e.,
     it's value is not 0), then it fails with [failwith "Invalid Entry
     Point"] *)
-let solvemaze (maze:int array array) ((entryrow, entrycol):(int * int)): (int * int) option =
+(* let solvemaze (maze:int array array) ((entryrow, entrycol):(int * int)): (int * int) option =
   let res = Stack.create () in
   let start = Some (entryrow, entrycol) in
   let border_ele mat pos =
@@ -48,7 +48,31 @@ let solvemaze (maze:int array array) ((entryrow, entrycol):(int * int)): (int * 
   | None -> None
   | Some (Some (x, y)) -> Some (x, y)
   | Some None -> None
-;;
+;; *)
+
+let solvemaze (maze:int array array) ((entryrow, entrycol):(int * int)): (int * int) option =
+  let start = (entryrow, entrycol) in
+  let border_ele (x, y) =
+    x = 0 || x = (Array.length maze - 1) || y = 0 || y = (Array.length maze.(0) - 1)
+  in
+  let rec helper (a:int * int): (int * int) option =
+    let (p, q) = a in
+    if p < 0 || p >= Array.length maze || q < 0 || q >= Array.length maze.(0) || maze.(p).(q) <> 0 then
+      None
+    else if border_ele (p, q) && (a <> start) then
+      Some (p, q)
+    else begin
+      maze.(p).(q) <- 1;
+      match helper (p, q + 1) with
+      | Some res -> Some res
+      | None -> match helper (p + 1, q) with
+                | Some res -> Some res
+                | None -> match helper (p, q - 1) with
+                          | Some res -> Some res
+                          | None -> helper (p - 1, q)
+    end
+  in
+  helper (entryrow, entrycol)
   
 
 

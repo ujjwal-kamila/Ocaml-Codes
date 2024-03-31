@@ -1,4 +1,0 @@
-; DO NOT MODIFY THIS FILE
-(test
- (name test_mazesolver)
- (libraries mazesolver))
