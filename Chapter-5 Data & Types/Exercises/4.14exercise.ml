@@ -49,6 +49,13 @@ let sorting lst = List.rev (List.sort Stdlib.compare lst);;
 
 (* Exercise: library puzzle [★★★] *)
 
+let last_element lst = List.hd (List.rev lst);;
+last_element list;;
+
+let any_zeros lst = 
+  List.exists (fun x -> x=0 )lst;;
+
+
 
 
 
