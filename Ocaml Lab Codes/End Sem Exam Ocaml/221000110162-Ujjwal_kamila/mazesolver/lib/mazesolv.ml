@@ -129,5 +129,4 @@ let get_parameters (): (string * int * int) =
       | None -> Printf.printf "Maze has no solution for the given entry point\n"
       | Some (r,c) -> Printf.printf "Maze has at least one exit point \
                                      found at (%i, %i)\n" r c;;
-    
-    
+                                     
