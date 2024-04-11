@@ -2,6 +2,7 @@
 (*Printing Hello World*)
 print_endline "Hello World:)";;
 let _ = print_endline "Hello world!";;
+print_string "Hello, world!\n";;
 
 3110;;
 2110;;
@@ -33,7 +34,7 @@ increment 10;;
 (**Expressions : operators "+","-","*","/","and","mod",*)
 65/60;;
 65 mod 60;;
-65/0;; (* zero divisable error *)
+(* 65/0;; *)   (*zero divisable error *)
 3.;;
 4.56;;
 3.14 *. 2.5;;
@@ -49,7 +50,7 @@ String.make 1 'z';;
 
 (** 4.3.1  "0 based index system like C "*)
 "abc".[0];;
-"abc".[3];;
+(* "abc".[3];; *)
 
 (** 4.3.2 More operators  "Equality" *)
  (**physical equality "==,!=" *)
@@ -108,4 +109,4 @@ let c = 22  in
 (**Type annonations syntax : "e:t" *)
 (5:int);;
 (5. : float);;
-(5 +. 1.1);;(* Type Error expectes float but it is in int*)
+(* (5 +. 1.1);;Type Error expectes float but it is in int *)
