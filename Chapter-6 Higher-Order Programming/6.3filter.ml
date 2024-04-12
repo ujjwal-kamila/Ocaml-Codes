@@ -38,3 +38,19 @@ filter (odd) [1;2;3;4;5;6;7];;
 (*same test cases with fun implementation*)
 filter (fun x -> x mod 2 = 0) [1; 2; 3; 4; 5; 6; 7; 8];;
 filter(fun x -> x mod 2 <> 0) [1; 2; 3; 4; 5; 6; 7;8];;  
+
+(* 6.3.1. Filter and Tail Recursion *)
+let rec filter_aux p acc = function
+  | [] -> acc
+  | h :: t -> if p h then filter_aux p (h :: acc) t else filter_aux p acc t
+
+let filter p = filter_aux p []
+
+let lst = filter even [1; 2; 3; 4]
+
+(* Here, the standard library makes a different choice than it did with map. It builds in the reversal to List.filter, which is implemented like this: *)
+let rec filter_aux p acc = function
+  | [] -> List.rev acc (* note the built-in reversal *)
+  | h :: t -> if p h then filter_aux p (h :: acc) t else filter_aux p acc t
+
+let filter p = filter_aux p []
