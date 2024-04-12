@@ -36,7 +36,7 @@ let rec combine op init = function
  |h :: t -> op h (combine op init t);;
 
 let sum = combine(+) 0;;
-let concat = combine( ^ ) "";;
+let concat = combine( ^ ) "";;     
 
 (* 6.4.2. Fold Right *)
 (* Function 'combine' recursively combines elements of a list using function 'f' and accumulator 'acc' *)
