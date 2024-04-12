@@ -106,3 +106,89 @@ let rec print_int_list = function
 print_int_list [100;200;500;1000]
 
 (* Exercise: print int list rec [★★] *)
+let print_int_list' lst = 
+  List.iter (fun x -> print_endline (string_of_int x )) lst
+(* print_int_list' [100;200;500;1000];; *)
+
+
+  (* Exercise: student [★★] *)
+
+type student = {first_name : string ; last_name : string ; gpa : float}
+
+let s = {first_name = "Ujjwal" ; last_name = "Kamila" ; gpa= 8.1}
+
+let s_full_name s = 
+  s.first_name ,s.last_name ;;
+
+  let sa_stud f l g =
+    { first_name = f; last_name = l; gpa=g };;
+
+    s_full_name s ;;
+
+
+(* Exercise: pokerecord [★★] *)
+
+type poketype  = Normal | Fire |Water
+
+type pokemon = {name : string ; hp:int ; ptype : poketype}
+
+let charizard ={name = "charizard"; hp = 78; ptype =Fire};;
+let squirtle ={name = "squirtle"; hp = 44; ptype =Water};;
+
+(* Exercise: safe hd and tl [★★] *)
+
+let safe_hd = function
+|[] ->None
+|h::t -> Some h;;
+
+let safe_tl = function
+|[] ->None
+|h::t -> Some h;;
+
+(* Exercise: pokefun [★★★] *)
+let rec max_hp = function
+|[] -> None 
+|h::t -> begin 
+  match max_hp t with 
+  |None -> Some h
+  |Some h1 -> Some (if h.hp>= h1.hp then h else h1)
+end;;
+
+(* Exercise: date before [★★] *)
+type date = int * int * int 
+
+let is_before day1 day2 = 
+  let (y1,m1,d1) = day1 in 
+  let (y2,m2,d2) = day2 in 
+  y1 >y2 || (y1=y2 && m1>m2) || (y1=y2 && m1=m2 && d1>d2);;
+
+  is_before (2024,12,04) (2024,12,02);;
+  is_before (2024,12,04) (2024,12,08);;
+
+(* Exercise: earliest date [★★★] *)
+let rec earliest = function
+| [] -> None 
+|h::t -> begin
+  match earliest t with 
+  |None -> Some h
+  |Some h1 -> Some (if is_before h h1 then h else h1)
+end;;
+
+(* Exercise: assoc list [★] *)
+
+(*done in tonight *)
+
+(* Exercise: cards [★★] *)
+type suit = Hearts | Spades | Clubs | Diamonds
+
+type rank = Number of int | Ace | Jack | Queen | King
+
+type card = { suit: suit; rank: rank }
+
+let ace_of_clubs : card = { suit = Clubs; rank = Ace }
+let queen_of_hearts : card = { suit = Hearts; rank = Queen }
+let two_of_diamonds : card = { suit = Diamonds; rank = Number 2 }
+let seven_of_spades : card = { suit = Spades; rank = Number 7 };;
+
+
+(* Exercise: matching [★] *)
