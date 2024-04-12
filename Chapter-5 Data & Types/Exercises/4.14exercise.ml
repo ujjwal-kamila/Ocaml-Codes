@@ -192,3 +192,9 @@ let seven_of_spades : card = { suit = Spades; rank = Number 7 };;
 
 
 (* Exercise: matching [★] *)
+
+(* Exercise:list max exn[★] *)
+let rec max_list =  function 
+|[]->raise(Failure"Can't Possible")
+|[n]-> n
+|h1::h2::t -> if h1>h2 then max_list (h1::t) else max_list (h2::t);;
