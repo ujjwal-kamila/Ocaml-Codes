@@ -56,6 +56,30 @@ let any_zeros lst =
   List.exists (fun x -> x=0 )lst;;
 
 
+(* Exercise: take drop [★★★] *)
 
+let rec take n lst =
+  if n <= 0 then
+    []
+  else
+    match lst with 
+    | [] -> []
+    | h :: t -> h :: take (n - 1) t;;
+
+let rec drop n lst = if n=0 then lst else match lst with 
+|[] -> []
+|h::t -> drop(n-1)t ;;
+
+
+(* Or anohter one * 
+let rec drop n lst =
+  if n <= 0 then
+    lst
+  else
+    match lst with
+    | [] -> []
+    | _ :: tl -> drop (n - 1) tl *)
+
+(* Exercise: take drop tail [★★★★] *)
 
 
