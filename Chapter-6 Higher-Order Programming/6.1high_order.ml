@@ -31,7 +31,6 @@ let fourth x = twice square x;;
 fourth 1;;
 fourth 3;;
 
-
 (* 6.1.1 The Abstraction Principle *)
 (* We can write a function that applies its first input to its second input: *)
 let apply f x = f x

@@ -8,7 +8,7 @@ let lst1 = add1 [1; 2; 3];;
 (** [concat_bang lst] concatenates "!" to each element of [lst] *)
 let rec concat_bang = function
   | [] -> []
-  | h :: t -> (h ^ "!") :: concat_bang t (*destructure it into head (h) and tail (t) & Concatenate "!" to the current head (h) *)
+  | h :: t -> (h ^ "!!") :: concat_bang t (*destructure it into head (h) and tail (t) & Concatenate "!" to the current head (h) *)
 
 let lst2 = concat_bang ["sweet"; "salty"];;
 
