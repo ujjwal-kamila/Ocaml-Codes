@@ -59,27 +59,50 @@ let any_zeros lst =
 (* Exercise: take drop [★★★] *)
 
 let rec take n lst =
-  if n <= 0 then
+  if n = 0 then
     []
   else
     match lst with 
     | [] -> []
     | h :: t -> h :: take (n - 1) t;;
 
+take 4 list;;
+
 let rec drop n lst = if n=0 then lst else match lst with 
 |[] -> []
 |h::t -> drop(n-1)t ;;
 
-
-(* Or anohter one * 
-let rec drop n lst =
-  if n <= 0 then
-    lst
-  else
-    match lst with
-    | [] -> []
-    | _ :: tl -> drop (n - 1) tl *)
+drop 2 list;;
 
 (* Exercise: take drop tail [★★★★] *)
+let rec take_rec n lst acc =
+  if n = 0 then acc else match lst with
+  |[]-> []
+  | h::t -> take_rec (n-1) t (h::acc);;
+
+  take_rec 4 list ;;
+
+let take_reverse n lst = 
+  List.rev(take_rec n lst []);;
+
+  take_reverse 3 list;;
+
+  (* Exercise: unimodal [★★★] *)
+  (* Done will be Tonight *)
 
 
+(* Exercise: powerset [★★★] *)
+let rec powerset = function
+| [] -> [[]]
+|h::t -> let p = powerset t in List.map (List.cons h) p @ p;;
+powerset [1;2;3;4];;
+
+
+(* Exercise: print int list rec [★★] *)
+let rec print_int_list = function
+| [] -> ()
+| h :: t -> print_endline(string_of_int h); print_int_list t;;
+
+print_int_list [100;200;500;1000]
+
+(* Exercise: print int list rec [★★] *)
