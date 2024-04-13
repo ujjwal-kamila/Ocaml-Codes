@@ -61,3 +61,15 @@ let a =PairFraction.make 5 12;;
 let b = PairFraction.make 5 12;;
 let c = PairFraction.add a b;;
 to_string c;;
+
+(* Exercise: date order [★★] *)
+type date = {month : int; day : int}
+
+module Date = struct
+type t = date 
+
+  let compare d1 d2 = 
+    let month_dif = d1.month - d2.month in
+    if month_dif = 0 then d1.day - d2.day
+    else month_dif  
+end;;
