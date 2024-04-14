@@ -29,9 +29,7 @@ type 'a mylist =
 *)
 let t =
   Node(4,
-    Node(2,
-      Node(1, Leaf, Leaf),
-      Node(3, Leaf, Leaf)
+    Node(2,Node(1, Leaf, Leaf),Node(3, Leaf, Leaf)
     ),
     Node(5,
       Node(6, Leaf, Leaf),
@@ -91,6 +89,44 @@ preorder t ;;
 the @ operator.*)
 
 (* That problem can be solved by introducing an extra argument acc to accumulate the values at each node *)
+
+(**Tree all Traversals*)
+type 'a binary_tree =
+  | Leaf
+  | Node of { value : 'a; left : 'a binary_tree; right : 'a binary_tree }
+
+(* Pre-order traversal: root -> left -> right *)
+let rec preorder = function
+  | Leaf -> []
+  | Node { value; left; right } -> [value] @ preorder left @ preorder right
+
+(* In-order traversal: left -> root -> right *)
+let rec inorder = function
+  | Leaf -> []
+  | Node { value; left; right } -> inorder left @ [value] @ inorder right
+
+(* Post-order traversal: left -> right -> root *)
+let rec postorder = function
+  | Leaf -> []
+  | Node { value; left; right } -> postorder left @ postorder right @ [value]
+
+(* Test cases *)
+let binary_tree =
+  Node {
+    value = 1;
+    left = Node { value = 2; left = Leaf; right = Leaf };
+    right = Node { value = 3; left = Leaf; right = Leaf };
+  }
+
+  (* test case using assert *)
+let () =
+  assert (preorder binary_tree = [1; 2; 3]);
+  assert (inorder binary_tree = [2; 1; 3]);
+  assert (postorder binary_tree = [2; 3; 1]);
+  print_endline "All test cases passed!"
+
+
+
 
 
 (* 5.12 Example: Natural Numbers *)
