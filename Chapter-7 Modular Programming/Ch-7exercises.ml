@@ -73,3 +73,22 @@ type t = date
     if month_dif = 0 then d1.day - d2.day
     else month_dif  
 end;;
+
+
+
+
+
+
+
+let rec h n pp p =
+  if n = 1 then p          (* Base case: if n is 1, return the current value of p *)
+  else h (n-1) p (pp+p)   (* Recursive case: calculate the next Fibonacci number *)
+
+(*
+   Function to calculate the nth Fibonacci number efficiently
+   It uses the helper function 'h' to calculate Fibonacci numbers recursively
+   It returns 0 if n is 0, and uses 'h' to calculate the Fibonacci number for n > 0
+*)
+let fib_fast n =
+  if n=0 then 0         (* Base case: if n is 0, return 0 (first Fibonacci number) *)
+  else h n 0 1          (* For n > 0, start calculating Fibonacci number using 'h' with initial values *)
