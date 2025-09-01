@@ -95,6 +95,11 @@ utop
    let rec fact n = if n = 0 then 1 else n * fact (n - 1);;
    fact 5;;
    ```
+---
+
+<h3 align="center">
+  <b>Happy Coding 👨‍💻 | Keep Practicing 💡</b>
+</h3>
 
 ---
 
